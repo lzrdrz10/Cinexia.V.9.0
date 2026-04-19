@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 body{color:#fff;overflow-x:hidden;background:#000;}
@@ -35,7 +36,32 @@ header{display:flex;justify-content:space-between;align-items:center;padding:15p
 .hero img{max-width:120px;border-radius:15px;margin-bottom:20px;}
 .hero h1{font-size:2.5rem;margin-bottom:10px;}
 .hero p{color:#ddd;margin-bottom:20px;}
-.main-btn{background:#ff2e63;padding:15px 30px;border-radius:10px;color:#fff;text-decoration:none;}
+
+/* NUEVO: CAJAS DE DESCARGA */
+.download-box{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(6px);
+padding:20px;
+border-radius:12px;
+margin:20px auto;
+max-width:300px;
+}
+
+.download-box p{
+margin-bottom:10px;
+color:#ccc;
+font-size:0.9rem;
+}
+
+.main-btn{
+display:inline-block;
+background:#ff2e63;
+padding:12px 25px;
+border-radius:10px;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+}
 
 /* FEATURES */
 .features{
@@ -122,23 +148,28 @@ footer{text-align:center;padding:20px;color:#aaa;}
 </header>
 
 <section class="hero">
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxqh6dDlZGl6UDYlVfNxiMHkxI6Atmy4FUfGEUKlk1utlmsiRq9Z1ogu9vgRGyJ11cGoHuzqGgQgSp7dIYu65i11YHsYpVItqkE3PZF-6ppMdCIhwI-vnfsii7igrcGv3Syf4VKu526wCh1Qeni3FPAfPxDnxT_zqH6ktlXvt6d8tYeacF7cMXTZKHSthH/s1290/Imagen%20de%20WhatsApp%202025-08-27%20a%20las%2011.30.04_0601b9e6.jpg" alt="LzPlay Banner">
 
-  <h1>Disfruta Películas y Series en LzPlay!</h1>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxqh6dDlZGl6UDYlVfNxiMHkxI6Atmy4FUfGEUKlk1utlmsiRq9Z1ogu9vgRGyJ11cGoHuzqGgQgSp7dIYu65i11YHsYpVItqkE3PZF-6ppMdCIhwI-vnfsii7igrcGv3Syf4VKu526wCh1Qeni3FPAfPxDnxT_zqH6ktlXvt6d8tYeacF7cMXTZKHSthH/s1290/Imagen%20de%20WhatsApp%202025-08-27%20a%20las%2011.30.04_0601b9e6.jpg">
 
-  <p>Contenido actualizado automáticamente con lo mejor del momento.</p>
+<h1>Disfruta Películas y Series en LzPlay!</h1>
+<p>Contenido actualizado automáticamente con lo mejor del momento.</p>
 
-  <br>
-  <a href="https://github.com/lzrdrz10/Cinexia.V.9.0/releases/download/LzPlay-V.1.0.0/LzPlay.apk" class="main-btn">
-    Descargar (No ADS)
-  </a>
+<!-- DESCARGA SIN ADS -->
+<div class="download-box">
+<p>Versión sin anuncios (Recomendada)</p>
+<a href="https://github.com/lzrdrz10/Cinexia.V.9.0/releases/download/LzPlay-V.1.0.0/LzPlay.apk" class="main-btn">
+Descargar (No ADS)
+</a>
+</div>
 
-  <p>Aplicación Alternativa (Esta versión contiene anuncios por parte de Appcreator24).</p>
+<!-- DESCARGA CON ADS -->
+<div class="download-box">
+<p>Aplicación alternativa (Incluye anuncios de Appcreator24)</p>
+<a href="https://github.com/lzrdrz10/descargar-apk-lzplay/releases/download/LzPlay-1/LzPlay.apk" class="main-btn">
+Descargar versión ADS
+</a>
+</div>
 
-  <br>
-  <a href="https://github.com/lzrdrz10/descargar-apk-lzplay/releases/download/LzPlay-1/LzPlay.apk" class="main-btn">
-    Descargar versión ADS
-  </a>
 </section>
 
 <!-- CARRUSEL -->
@@ -205,11 +236,11 @@ setInterval(cambiar,5000);
 
 /* CARRUSEL */
 movies.slice(0,7).forEach(m=>{
-  if(!m.backdrop_path)return;
-  const div=document.createElement("div");
-  div.className="movie";
-  div.style.backgroundImage=`url(https://image.tmdb.org/t/p/w500${m.backdrop_path})`;
-  carousel.appendChild(div);
+if(!m.backdrop_path)return;
+const div=document.createElement("div");
+div.className="movie";
+div.style.backgroundImage=`url(https://image.tmdb.org/t/p/w500${m.backdrop_path})`;
+carousel.appendChild(div);
 });
 }
 
